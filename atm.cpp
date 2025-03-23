@@ -144,4 +144,59 @@ class ATM {
         cout << "  Welcome, " << accountHolder << "!";
         cout << "\n==============================\n";
     }
+    // ATM class definition
+class ATM {
+    private:
+        string accountNumber;  // Stores user account number
+        string pin;            // Stores user PIN for authentication
+        string accountHolder;  // Stores user name
+        double balance;        // Stores account balance
+    public:
+        // Constructor
+        ATM(string accNum, string accHolder, string userPin, double initialBalance) {
+            accountNumber = accNum;
+            accountHolder = accHolder;
+            pin = userPin;
+            balance = initialBalance;
+        }
+        
+        // Method to validate login
+        bool validateLogin(string enteredAccNum, string enteredPin) {
+            return (enteredAccNum == accountNumber && enteredPin == pin);
+        }
+    
+        // Display welcome message
+        void welcomeUser() {
+            cout << "\nWelcome, " << accountHolder << "!\n";
+        }
+    
+        // Display account balance
+        void checkBalance() {
+            cout << "\nYour current balance: $" << balance << endl;
+        }
+    
+        // Deposit money
+        void deposit(double amount) {
+            if (amount > 0) {
+                balance += amount;
+                cout << "\n$" << amount << " deposited successfully.\n";
+            } else {
+                cout << "\nInvalid deposit amount!\n";
+            }
+            checkBalance();
+        }
+    
+        // Withdraw money
+        void withdraw(double amount) {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                cout << "\n$" << amount << " withdrawn successfully.\n";
+            } else if (amount > balance) {
+                cout << "\nInsufficient balance!\n";
+            } else {
+                cout << "\nInvalid withdrawal amount!\n";
+            }
+            checkBalance();
+        }
+    };
     
