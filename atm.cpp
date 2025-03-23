@@ -139,4 +139,9 @@ class ATM {
             }
         }
     }
+    void welcomeUser() {
+        cout << "\n==============================\n";
+        cout << "  Welcome, " << accountHolder << "!";
+        cout << "\n==============================\n";
+    }
     
