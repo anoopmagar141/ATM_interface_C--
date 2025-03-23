@@ -52,4 +52,55 @@ class ATM {
     void welcomeUser() {
         cout << "\nWelcome, " << accountHolder << "!\n";
     }
+    int main() {
+        string enteredAccNum, enteredPin;
+        double amount;
+        ATM userAccount("101", "John Doe", "1234", 5000.0);
+    
+        cout << "Enter Account Number: ";
+        cin >> enteredAccNum;
+        cout << "Enter PIN: ";
+        cin >> enteredPin;
+    
+        if (!userAccount.validateLogin(enteredAccNum, enteredPin)) {
+            cout << "\nIncorrect Account Number or PIN! Exiting...\n";
+            return 0;
+        }
+    
+        userAccount.welcomeUser();
+    
+        int choice;
+        do {
+            cout << "\nATM Menu:\n";
+            cout << "1. Check Balance\n";
+            cout << "2. Deposit Money\n";
+            cout << "3. Withdraw Money\n";
+            cout << "4. Exit\n";
+            cout << "Choose an option: ";
+            cin >> choice;
+    
+            switch (choice) {
+                case 1:
+                    userAccount.checkBalance();
+                    break;
+                case 2:
+                    cout << "\nEnter amount to deposit: $";
+                    cin >> amount;
+                    userAccount.deposit(amount);
+                    break;
+                case 3:
+                    cout << "\nEnter amount to withdraw: $";
+                    cin >> amount;
+                    userAccount.withdraw(amount);
+                    break;
+                case 4:
+                    cout << "\nThank you for using the ATM. Goodbye!\n";
+                    break;
+                default:
+                    cout << "\nInvalid choice! Please select a valid option.\n";
+            }
+        } while (choice != 4);
+    
+        return 0;
+    }
     
