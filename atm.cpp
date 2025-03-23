@@ -124,4 +124,19 @@ class ATM {
         }
         checkBalance();
     }
+    int getValidChoice() {
+        int choice;
+        while (true) {
+            cout << "Choose an option: ";
+            cin >> choice;
+    
+            if (cin.fail()) { 
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid choice! Please enter a number.\n";
+            } else {
+                return choice;
+            }
+        }
+    }
     
