@@ -103,4 +103,25 @@ class ATM {
     
         return 0;
     }
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            cout << "\n$" << amount << " deposited successfully.\n";
+        } else {
+            cout << "\nInvalid deposit amount! Please enter a positive number.\n";
+        }
+        checkBalance();
+    }
+    
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            cout << "\n$" << amount << " withdrawn successfully.\n";
+        } else if (amount > balance) {
+            cout << "\nInsufficient balance! Please enter a smaller amount.\n";
+        } else {
+            cout << "\nInvalid withdrawal amount! Please enter a positive number.\n";
+        }
+        checkBalance();
+    }
     
