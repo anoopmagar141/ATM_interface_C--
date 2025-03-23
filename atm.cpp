@@ -45,4 +45,11 @@ class ATM {
             cout << "\nInvalid withdrawal amount!\n";
         }
     }
+    bool validateLogin(string enteredAccNum, string enteredPin) {
+        return (enteredAccNum == accountNumber && enteredPin == pin);
+    }
+    
+    void welcomeUser() {
+        cout << "\nWelcome, " << accountHolder << "!\n";
+    }
     
